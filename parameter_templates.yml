@@ -1,0 +1,18 @@
+
+parameters: 
+  env: dev 
+  
+jobs: 
+  - job: deploy
+    environment: ${{parameters.env}}
+    steps: 
+      - task: AppCenterDistribute@3
+        inputs:
+          serverEndpoint: 'Appcenter_andriod_demo'
+          appSlug: 'dayanandachari.v-nagarro.com/practice_andriod'
+          appFile: 'app/build/outputs/apk/app-prod-debug.apk'
+          symbolsOption: 'Android'
+          releaseNotesOption: 'input'
+          releaseNotesInput: 'test release'
+          destinationType: 'groups'
+          distributionGroupId: '4a902076-d7f6-4d10-a73e-7ff89da51441'

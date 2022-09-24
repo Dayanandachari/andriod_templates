@@ -1,4 +1,6 @@
-          
+steps:
+- script: echo "Testing resource template"  
+       
 steps:
 - task: Gradle@2
   inputs:

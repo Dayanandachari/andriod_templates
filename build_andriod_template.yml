@@ -1,1 +1,41 @@
+parameters:
+- name:  jdkVersionOption
+  default: '1.8
+- name: Build_version
+  default: '1.0.0'
+ 
 
+steps:
+- task: Gradle@2
+  inputs:
+    workingDirectory: ''
+    gradleWrapperFile: 'gradlew'
+    gradleOptions: '-Xmx3072m'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: ${{ parameters.jdkVersionOption}}
+    jdkArchitectureOption: 'x64'
+    publishJUnitResults: true
+    testResultsFiles: '**/TEST-*.xml'
+    tasks: 'assembleDebug'
+  env:
+    Build_version: ${{ Build_version }}
+    build_code: $(Build.BuildId)
+  displayName: gradlew assembleDebug test
+
+
+
+
+
+
+
+
+
+
+
+#jobs: 
+#- job: stages
+## steps:
+ ## script: echo hello world ${{parameters.employeename}}
+ 
+#steps:
+#- script: echo hello world ${{parameters.employeename}}

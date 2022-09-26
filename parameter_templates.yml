@@ -2,8 +2,11 @@ parameters:
 - name: employeename 
   default: 'daya'
 
-jobs: 
-- job: stages
-  steps:
+#jobs: 
+#- job: stages
+## steps:
+ ## script: echo hello world ${{parameters.employeename}}
+ 
+ steps:
   - script: echo hello world ${{parameters.employeename}}
   

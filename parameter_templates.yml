@@ -3,7 +3,7 @@ parameters:
   default: 'daya'
 
 jobs: 
-- job: ${{parameters.employeename}}
+- job: stages
   steps:
   - script: echo hello world ${{parameters.employeename}}
   

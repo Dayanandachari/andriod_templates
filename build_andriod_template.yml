@@ -1,6 +1,6 @@
 parameters:
 - name:  jdkVersionOption
-  default: '1.8
+  default: '1.8'
 - name: Build_version
   default: '4.0.0'
  

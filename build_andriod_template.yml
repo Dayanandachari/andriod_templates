@@ -2,7 +2,7 @@ parameters:
 - name:  jdkVersionOption
   default: '1.8
 - name: Build_version
-  default: '4.2.0'
+  default: '4.0.0'
  
 
 steps:
@@ -12,7 +12,7 @@ steps:
     gradleWrapperFile: 'gradlew'
     gradleOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
-    jdkVersionOption: ${{ parameters.jdkVersionOption}}
+    jdkVersionOption: ${{ parameters.jdkVersionOption }}
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
@@ -21,7 +21,6 @@ steps:
     Build_version: ${{ parameters.Build_version }}
     build_code: $(Build.BuildId)
   displayName: gradlew assembleDebug test
-
 
 
 

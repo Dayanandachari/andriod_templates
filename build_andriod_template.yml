@@ -2,7 +2,7 @@ parameters:
 - name:  jdkVersionOption
   default: '1.8
 - name: Build_version
-  default: '1.0.0'
+  default: '4.2.0'
  
 
 steps:
@@ -18,7 +18,7 @@ steps:
     testResultsFiles: '**/TEST-*.xml'
     tasks: 'assembleDebug'
   env:
-    Build_version: ${{ Build_version }}
+    Build_version: ${{ parameters.Build_version }}
     build_code: $(Build.BuildId)
   displayName: gradlew assembleDebug test
 

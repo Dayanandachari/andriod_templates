@@ -20,7 +20,7 @@ steps:
   env:
     Build_version: ${{ parameters.Build_version }}
     build_code: $(Build.BuildId)
-  displayName: gradlew assembleDebug test
+  displayName: gradlew assembleDebug
 
 
 

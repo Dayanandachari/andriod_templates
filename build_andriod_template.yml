@@ -41,6 +41,19 @@ steps:
     apksignerKeystoreAlias: 'andriod_secret'
     apksignerKeyPassword: ${{ parameters.Key_password }}
 
+- task: CopyFiles@2
+  inputs:
+    contents: '**/*.apk'
+    targetFolder: '$(build.artifactStagingDirectory)'
+  displayName: Copy .apk files to artifact staging directory
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: '$(build.artifactStagingDirectory)'
+    artifactName: 'drop'
+    artifactType: 'container'
+  displayName: Publish artifacts
+  
 - task: AppCenterDistribute@3
   inputs:
     serverEndpoint: ${{ parameters.serverEndpoint }}

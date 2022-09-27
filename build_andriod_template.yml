@@ -3,6 +3,10 @@ parameters:
   default: '1.8'
 - name: Build_version
   default: '4.0.0'
+- name: Key_password
+  default: '123456'
+- name: keystore_password
+  default: '123456'
  
 
 steps:
@@ -22,7 +26,13 @@ steps:
     build_code: $(Build.BuildId)
   displayName: gradlew assembleDebug
 
-
+- task: AndroidSigning@3
+  inputs:
+    apkFiles: '**/*.apk'
+    apksignerKeystoreFile: 'secret_andriod.jks'
+    apksignerKeystorePassword: ${{ parameters.keystore_password }}
+    apksignerKeystoreAlias: 'andriod_secret'
+    apksignerKeyPassword: ${{ parameters.Key_password }}
 
 
 

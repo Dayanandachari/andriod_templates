@@ -4,22 +4,22 @@ parameters:
 - name: Build_version
   default: ' '
 - name: gradleOptions
-  default: ''
+  default: ' '
 - name: tasks
-  default: '' 
+  default: ' ' 
 
 steps:
 - task: Gradle@2
   inputs:
     workingDirectory: ''
     gradleWrapperFile: 'gradlew'
-    gradleOptions: ${{parameters.gradleOptions}}
+    gradleOptions: ${{ parameters.gradleOptions }}
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: ${{ parameters.jdkVersionOption }}
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
-    tasks: ${{parameters.tasks}}
+    tasks: ${{ parameters.tasks }}
   env:
     Build_version: ${{ parameters.Build_version }}
     build_code: $(Build.BuildId)

@@ -4,9 +4,9 @@ parameters:
 - name: Build_version
   default: ' '
 - name: gradleOptions
-  default: ' '
+  default: '-Xmx3072m'
 - name: tasks
-  default: ' ' 
+  default: 'test' 
 
 steps:
 - task: Gradle@2

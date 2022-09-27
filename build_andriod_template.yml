@@ -7,7 +7,14 @@ parameters:
   default: '123456'
 - name: keystore_password
   default: '123456'
- 
+- name: serverEndpoint
+  default: 'team_c_app_center_connection'
+- name: appSlug
+  default: 'dayanandachari.v-nagarro.com/practice_andriod'
+- name:  releaseNotesInput
+  default: 'release notes'
+- name: distributionGroupId
+  default: '0557e448-6367-43d0-8d03-814b35c9ebcd'
 
 steps:
 - task: Gradle@2
@@ -34,7 +41,16 @@ steps:
     apksignerKeystoreAlias: 'andriod_secret'
     apksignerKeyPassword: ${{ parameters.Key_password }}
 
-
+- task: AppCenterDistribute@3
+  inputs:
+    serverEndpoint: ${{ parameters.serverEndpoint }}
+    appSlug: ${{ parameters.appSlug }}
+    appFile: 'app/build/outputs/apk/app-prod-debug.apk'
+    symbolsOption: 'Android'
+    releaseNotesOption: 'input'
+    releaseNotesInput: ${{ parameters.releaseNotesInput }}
+    destinationType: 'groups'
+    distributionGroupId: ${{ parameters.distributionGroupId }}
 
 
 

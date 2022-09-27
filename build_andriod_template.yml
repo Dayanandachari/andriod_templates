@@ -12,9 +12,9 @@ parameters:
 - name: appSlug
   default: 'dayanandachari.v-nagarro.com/practice_andriod'
 - name:  releaseNotesInput
-  default: 'release notes'
+  default: ''
 - name: distributionGroupId
-  default: '0557e448-6367-43d0-8d03-814b35c9ebcd'
+  default: ''
 
 steps:
 - task: Gradle@2

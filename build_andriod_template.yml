@@ -1,16 +1,16 @@
 parameters:
 - name:  jdkVersionOption
-  default: '1.8'
+  default: ' '
 - name: Build_version
-  default: '4.0.0'
+  default: ' '
 - name: Key_password
-  default: '123456'
+  default: ' '
 - name: keystore_password
-  default: '123456'
+  default: ' '
 - name: serverEndpoint
-  default: 'team_c_app_center_connection'
+  default: ' '
 - name: appSlug
-  default: 'dayanandachari.v-nagarro.com/practice_andriod'
+  default: ' '
 - name:  releaseNotesInput
   default: ''
 - name: distributionGroupId
